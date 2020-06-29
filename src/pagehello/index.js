@@ -11,11 +11,11 @@ import { Provider, connect } from 'react-redux'
   render() {
     return (
       <View style={{flex:1,backgroundColor:"red"}}>
-        <Button onPress={this.props.increment} title="hello"></Button>
-        <Button onPress={this.props.incrementAsync}title="incr"></Button>
+        <Button onPress={()=>this.props.increment()} title="hello"></Button>
+        <Button onPress={()=>this.props.incrementAsync()}title="incr"></Button>
         <View style={{backgroundColor:"white",flex:1}}>
         <Text>{this.props.count}</Text>
-        </View>
+        </View> 
       </View>
     );
   }
@@ -25,7 +25,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = ({ count: { increment, incrementAsync } }) => ({
-    increment: () => increment(-1),
+    increment: () => increment(1),
     incrementAsync: () => incrementAsync(1),
 })
 

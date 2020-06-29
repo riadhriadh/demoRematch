@@ -1,7 +1,30 @@
 import { init } from '@rematch/core'
+import updatedPlugin from '@rematch/updated'
+import thunk from 'redux-thunk'
 import * as models from './models'
+import createRematchPersist from '@rematch/persist'
+import storage from 'redux-persist/es/storage';
+import selectPlugin from '@rematch/select'
+import {createLogger } from 'redux-logger'
+let middlewares = [thunk]
+
+  middlewares = [
+    ...middlewares,
+    createLogger({
+      collapsed: true,
+      colors: false,
+    }),
+  ]
+const persistPlugin = createRematchPersist({
+    whitelist: ['count'],
+    version: 2,
+    storage,
+})
+const updated = updatedPlugin()
 const store = init({
     models,
+    plugins: [updated,persistPlugin,selectPlugin()],
+    middlewares,
 })
 
 export const { dispatch } = store

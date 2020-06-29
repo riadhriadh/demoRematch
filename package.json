@@ -11,9 +11,16 @@
   },
   "dependencies": {
     "@rematch/core": "^1.4.0",
+    "@rematch/persist": "^1.1.6",
+    "@rematch/select": "^2.0.5",
+    "@rematch/updated": "^0.1.5",
+    "install": "^0.13.0",
+    "npm": "^6.14.5",
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
